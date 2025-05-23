@@ -9,155 +9,187 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="container-header">
-          <div class="logo">
-            <img src="componentes/images/Logo.png" alt="AuValia" />
-            <span>AuValia</span>
-          </div>
-      
-          <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Buscar petshops, serviços...">
-          </div>
-
-
-      
-          <div class="menu-toggle" id="menu-toggle">☰</div>
-            <nav class="nav-links" id="nav-links">
-              <a href="index.html">Início</a>
-              <a href="busca.html">Perfil</a>
-              <a href="mensagens.html">Mensagens</a>
-            </nav>
-          </div>
-      </header>
-      
-
+  <!-- Página Inicial 1: Topo do site -->
+  <header class="header">
+    <div class="container-header">
+      <div class="logo">
+        <img src="componentes/images/Logo.png" alt="AuValia" />
+        <span>AuValia</span>
+      </div>
+      <div class="search-box">
+        <a href="busca.html" class="search-button">
+          <i class="fas fa-search"></i>
+        </a>
+        <input type="text" id="search-input-index" placeholder="Buscar petshops, serviços...">
+      </div>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html">Início</a>
+        <a href="#">Perfil</a>
+        <a href="mensagens.html">Mensagens</a>
+      </nav>
+    </div>
+  </header>
 
   <main>
-    <section class="main-hero">
-    <div>
-      <h1>Encontre os melhores petshops da sua cidade</h1>
-      <p>Compare avaliações, agende serviços e cuide bem do seu pet</p>
-    </div>
-      <img src="componentes/images/logosem.png" alt="Dona dando banho no dog" width="300">
+    <section class="main-hero" style="background: #fff6e7;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 3rem 1rem;">
+        <div style="max-width: 540px;">
+          <h1 style="font-size:2.5rem; color:#23272f; font-weight:700; margin-bottom:1.5rem;">Encontre os melhores petshops da sua cidade</h1>
+          <p style="font-size:1.25rem; color:#23272f; margin-bottom:1.5rem;">Compare avaliações, agende serviços<br>e cuide bem do seu pet</p>
+        </div>
+        <img src="componentes/images/logosem.png" alt="Dona com cachorro" style="max-width:350px; width:100%; height:auto;">
+      </div>
     </section>
 
-    <section class="destaques">
-        <h2>Top 5 Petshops</h2>
-        <div class="cards">
-          <div class="card-petshop">
-            <img src="componentes/images/palaciopet.png" alt="Palácio Pet" class="petshop-logo" />
-            <h3>Palácio Pet</h3>
-            <p class="stars">⭐⭐⭐⭐⭐</p>
-            <p>📍 1,2 km</p>
-            <p class="reviews">(128 avaliações)</p>
-            <button>Ver Perfil</button>
-          </div>
-      
-          <div class="card-petshop">
-            <img src="componentes/images/petz.jpeg" alt="Pet Shop Petz" class="petshop-logo" />
-            <h3>Pet Shop Petz</h3>
-            <p class="stars">⭐⭐⭐⭐⭐</p>
-            <p>📍 1,2 km</p>
-            <p class="reviews">(98 avaliações)</p>
-            <button>Ver Perfil</button>
-          </div>
-      
-          <div class="card-petshop">
-            <img src="componentes/images/transformacaodog.png" alt="transformacaodog" class="petshop-logo" />
-            <h3>transformacaodog</h3>
-            <p class="stars">⭐⭐⭐⭐⭐</p>
-            <p>📍 1,5 km</p>
-            <p class="reviews">(201 avaliações)</p>
-            <button>Ver Perfil</button>
-          </div>
-      
-          <div class="card-petshop">
-            <img src="componentes/images/studiodog.jpg" alt="Studio Dog" class="petshop-logo" />
-            <h3>Studio Dog</h3>
-            <p class="stars">⭐⭐⭐⭐⭐</p>
-            <p>📍 2,0 km</p>
-            <p class="reviews">(65 avaliações)</p>
-            <button>Ver Perfil</button>
-          </div>
-      
-          <div class="card-petshop">
-            <img src="componentes/images/cobasi.png" alt="Cobasi Pet" class="petshop-logo" />
-            <h3>Cobasi</h3>
-            <p class="stars">⭐⭐⭐⭐⭐</p>
-            <p>📍 1,0 km</p>
-            <p class="reviews">(87 avaliações)</p>
-            <button>Ver Perfil</button>
-          </div>
-
+    <section class="destaques" style="background: #fff6e7;">
+      <h2 style="font-size:1.5rem; color:#23272f; font-weight:700; margin-bottom:2rem; text-align:left; max-width:1200px; margin-left:auto; margin-right:auto;">Top 5 Petshops</h2>
+      <div class="cards" style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;max-width:1200px;margin:0 auto;">
+        <div class="card-petshop" style="background:#fff; border-radius:20px; box-shadow:0 2px 8px rgba(0,0,0,0.07); padding:2rem 1.5rem; min-width:200px; text-align:center;">
+          <img src="componentes/images/palaciopet.png" alt="PetLiz" style="width:48px;height:48px;margin-bottom:1rem;">
+          <div style="font-weight:700; font-size:1.15rem; color:#23272f;">PetLiz</div>
+          <div style="color:#ffb400; font-size:1.2rem;">★★★★★</div>
+          <div style="color:#888; font-size:0.98rem;">(107 avaliações)</div>
+          <button style="margin-top:1rem; background:#ffb400; color:#fff; border:none; border-radius:12px; padding:0.6rem 1.5rem; font-weight:600; cursor:pointer;">Ver petshop</button>
         </div>
-      </section>
+        <div class="card-petshop" style="background:#fff; border-radius:20px; box-shadow:0 2px 8px rgba(0,0,0,0.07); padding:2rem 1.5rem; min-width:200px; text-align:center;">
+          <img src="componentes/images/petz.jpeg" alt="ColoAmigo" style="width:48px;height:48px;margin-bottom:1rem;">
+          <div style="font-weight:700; font-size:1.15rem; color:#23272f;">ColoAmigo</div>
+          <div style="color:#ffb400; font-size:1.2rem;">★★★★★</div>
+          <div style="color:#888; font-size:0.98rem;">(89 avaliações)</div>
+          <button style="margin-top:1rem; background:#ffb400; color:#fff; border:none; border-radius:12px; padding:0.6rem 1.5rem; font-weight:600; cursor:pointer;">Ver petshop</button>
+        </div>
+        <div class="card-petshop" style="background:#fff; border-radius:20px; box-shadow:0 2px 8px rgba(0,0,0,0.07); padding:2rem 1.5rem; min-width:200px; text-align:center;">
+          <img src="componentes/images/transformacaodog.png" alt="MundoPet" style="width:48px;height:48px;margin-bottom:1rem;">
+          <div style="font-weight:700; font-size:1.15rem; color:#23272f;">MundoPet</div>
+          <div style="color:#ffb400; font-size:1.2rem;">★★★★★</div>
+          <div style="color:#888; font-size:0.98rem;">(75 avaliações)</div>
+          <button style="margin-top:1rem; background:#ffb400; color:#fff; border:none; border-radius:12px; padding:0.6rem 1.5rem; font-weight:600; cursor:pointer;">Ver petshop</button>
+        </div>
+        <div class="card-petshop" style="background:#fff; border-radius:20px; box-shadow:0 2px 8px rgba(0,0,0,0.07); padding:2rem 1.5rem; min-width:200px; text-align:center;">
+          <img src="componentes/images/studiodog.jpg" alt="PetLar" style="width:48px;height:48px;margin-bottom:1rem;">
+          <div style="font-weight:700; font-size:1.15rem; color:#23272f;">PetLar</div>
+          <div style="color:#ffb400; font-size:1.2rem;">★★★★★</div>
+          <div style="color:#888; font-size:0.98rem;">(82 avaliações)</div>
+          <button style="margin-top:1rem; background:#ffb400; color:#fff; border:none; border-radius:12px; padding:0.6rem 1.5rem; font-weight:600; cursor:pointer;">Ver petshop</button>
+        </div>
+        <div class="card-petshop" style="background:#fff; border-radius:20px; box-shadow:0 2px 8px rgba(0,0,0,0.07); padding:2rem 1.5rem; min-width:200px; text-align:center;">
+          <img src="componentes/images/cobasi.png" alt="Boa Fara" style="width:48px;height:48px;margin-bottom:1rem;">
+          <div style="font-weight:700; font-size:1.15rem; color:#23272f;">Boa Fara</div>
+          <div style="color:#ffb400; font-size:1.2rem;">★★★★★</div>
+          <div style="color:#888; font-size:0.98rem;">(45 avaliações)</div>
+          <button style="margin-top:1rem; background:#ffb400; color:#fff; border:none; border-radius:12px; padding:0.6rem 1.5rem; font-weight:600; cursor:pointer;">Ver petshop</button>
+        </div>
+      </div>
+    </section>
 
-      <section class="servicos">
-        <h2>Serviços</h2>
-        <div class="servico-icons">
+    <!-- Página Inicial: Parte de baixo do site -->
+    <section class="servicos" style="background: linear-gradient(to bottom, #ffe7bb, #fff9ed); padding-top:3rem;">
+      <h2 style="text-align:center; margin-bottom:2rem;">Serviços do AuValia</h2>
+      <div class="servico-icons" style="justify-content:center;">
+        <div>
+          <img src="componentes/images/iconedog.png" alt="Banho e Tosa" style="width:80px; height:80px;">
           <div>Banho e Tosa</div>
-          <img src="componentes/images/doghappyshower.jpg" alt="Banho e Tosa" class="petshop-logo" />
-          <div>Higiene</div>
-          <img src="componentes/images/higienicdog.jpg" alt="Higiene" class="petshop-logo" />
-          <div>Agendamentos</div>
-          <img src="componentes/images/agendamentos.jpg" alt="Agendamentos" class="petshop-logo" />
         </div>
-      <button>Ver Petshops!</button>
-  </section>
+        <div>
+          <img src="componentes/images/iconevacina.jpg" alt="Vacinação" style="width:80px; height:80px;">
+          <div>Vacinação</div>
+        </div>
+        <div>
+          <img src="componentes/images/iconevetjpg.jpg" alt="Consultas Veterinarias" style="width:80px; height:80px;">
+          <div>Consultas<br>Veterinarias</div>
+        </div>
+        <div>
+          <img src="componentes/images/iconeadestra.jpg" alt="Adestramento" style="width:80px; height:80px;">
+          <div>Adestramento</div>
+        </div>
+        <div>
+          <img src="componentes/images/produtos.jpg" alt="Produtos" style="width:80px; height:80px;">
+          <div>Produtos</div>
+        </div>
+      </div>
+      <button style="margin:2rem auto 0;display:block;">Ver Petshops</button>
+    </section>
 
-  <section class="avaliacao">
-    <h2>Avaliações</h2>
-    <div class="avaliacoes">
-      <strong>Marina, Indaiatuba-SP</strong>
-      <p>O atendimento no PetFeliz foi maravilhoso, minha cadelinha amou!</p>
-      <div class="card"><h3>PetFeliz</h3><p>4.8 ★ - 1,2 km</p><button>Ver Perfil</button></div>
-      <strong>Joana, Indaiatuba-SP</strong>
-      <p>Gostei muito do serviço de banho e tosa deles! Achei fantastico o jeito como a minha cachorrinha veio...</p>
-      <div class="card"><h3>Mundo Pet</h3><p>4.7 ★ - 2,1 km</p><button>Ver Perfil</button></div>
-      <strong>Lucas, Indaiatuba-SP</strong>
-      <p>Vou contar minha experiencia que tive com o serviço deles. Meu cachorro voltou super feliz e muito cheiroso...</p>
-      <div class="card"><h3>Amigos Pet</h3><p>4.6 ★ - 2,4 km</p><button>Ver Perfil</button></div>
-    </div>
-  </section>
+    <section class="avaliacao" style="background:#fff9ed;">
+      <h2 style="text-align:center;">Avaliação</h2>
+      <div class="avaliacoes" style="flex-direction:row; gap:2rem; justify-content:center;">
+        <div class="card" style="max-width:320px;">
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <img src="componentes/images/mulherusuario.jpg" alt="Cliente" style="width:60px;height:60px;border-radius:50%;">
+            <div>
+              <strong>Marina, Indaiatuba-SP</strong>
+              <p style="margin:0;">O atendimento no PetFeliz foi maravilhoso, minha cadelinha amou!</p>
+              <div style="color:orange;">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="max-width:320px;display:flex;align-items:center;justify-content:center;">
+          <img src="componentes/images/mapa.jpg" alt="Mapa" style="width:90%;border-radius:12px;">
+        </div>
+      </div>
+      <div class="cards" style="margin-top:2rem;">
+        <div class="card-petshop">
+          <div style="font-weight:bold;">PetFeliz</div>
+          <div style="color:orange;">★ 4.8</div>
+          <div><b>1,2 km</b></div>
+          <p class="reviews">(128 avaliações)</p>
+          <button>Ver Perfil</button>
+        </div>
+        <div class="card-petshop">
+          <div style="font-weight:bold;">Mundo Pet</div>
+          <div style="color:orange;">★ 4.7</div>
+          <div><b>2,1 km</b></div>
+          <p class="reviews">(98 avaliações)</p>
+          <button>Ver Perfil</button>
+        </div>
+        <div class="card-petshop">
+          <div style="font-weight:bold;">Amigos Pet</div>
+          <div style="color:orange;">★ 4.6</div>
+          <div><b>2,4 km</b></div>
+          <p class="reviews">(65 avaliações)</p>
+          <button>Ver Perfil</button>
+        </div>
+      </div>
+    </section>
 
-  <section class="galeria">
-    <h1>Venha nos conhecer!</h1>
-    <h4>* Somos uma comunidade onde queremos ajudar você a buscar pelos melhores PetShops 🐕‍🦺</h4>
-    <h4>* Contendo avaliações seguras e honestas de usuários nossos ✅</h4>
-    <h4>*E podendo entrar em contato com os PetShops para agendamentos 🗓</h4>
-    <img src="componentes/images/celularwomandog.jpg" alt="Mulher com celular e cachorro" class="galeria-imagem" />
-    <h3>Deixando seu pet feliz! 🐶</h3>
-    <img src="componentes/images/donocachorrofelizes.jpeg" alt="Dono e cachorro felizes" class="galeria-imagem" />
-    <h3>O bem estar do seu pet é a melhor coisa! ❤</h3>
-    <img src="componentes/images/dogcat.jpg" alt="Cães e gatos felizes" class="galeria-imagem" />
-    <h3>Cuidado com o seu animalzinho nunca é demais</h3>
-    <img src="componentes/images/Mulheregato.jpg" alt="Dona e Gatinho" class="galeria-imagem" />
-    <h3>Todos os animais são bem-vindos nesse espaço!</h3>
-    <img src="componentes/images/animais.jpg" alt="Cães e gatos felizes" class="galeria-imagem" />
-  </section>
+    <section class="galeria" style="background:#ffe7bb;">
+      <div style="display:flex;gap:2rem;justify-content:center;">
+        <img src="componentes/images/Mulheregato.jpg" alt="Animais" class="galeria-imagem" style="width:200px;height:200px;">
+        <img src="componentes/images/cutedog.jpg" alt="Dog 2" class="galeria-imagem" style="width:200px;height:200px;">
+        <img src="componentes/images/animais.jpg" alt="Dog 3" class="galeria-imagem" style="width:200px;height:200px;">
+        <img src="componentes/images/donocachorrofelizes.jpeg" alt="Dog 4" class="galeria-imagem" style="width:200px;height:200px;">
+      </div>
+    </section>
 
-  <section class="dicas">
-    <h2>Dicas Pet</h2>
-    <ul>
-      <li>Como escolher o melhor PetShop para seu pet</li>
-      <li>5 sinais de que seu gato precisa de uma higienização</li>
-      <li>O que fazer para deixar seu pet sem bafo</li>
-      <li>Como manter a higiene do seu pet em dia</li>
-    </ul>
-    <div class="newsletter">
-      <label>Email pessoal</label>
-      <input type="email" placeholder="Digite seu e-mail">
-      <button>Quero receber novidades!</button>
-    </div>
-  </section>
-      
+    <section class="dicas" style="background:#fff9ed;">
+      <h2 style="text-align:left;">Quem nos somos?</h2>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+        <ul style="list-style:none;padding:0;">
+          <li style="margin-bottom:1rem;">
+            <img src="componentes/images/Coração.png" alt="" style="width:32px;vertical-align:middle;margin-right:8px;">
+            Somos uma comunidade de amantes de pets
+          </li>
+          <li style="margin-bottom:1rem;">
+            <img src="componentes/images/estrela.jpg" alt="" style="width:32px;vertical-align:middle;margin-right:8px;">
+            Queremos te ajudar a encontrar os melhores PetShops
+          </li>
+          <li>
+            <img src="componentes/images/certinho.png" alt="" style="width:32px;vertical-align:middle;margin-right:8px;">
+            Com toda segurança e conforto para o seu animalzinho
+          </li>
+        </ul>
+        <div style="background:#fffbe6;border-radius:20px;padding:2rem;min-width:320px;max-width:350px;box-shadow:0 2px 8px rgba(0,0,0,0.07);display:flex;flex-direction:column;align-items:center;">
+          <label style="font-weight:bold;margin-bottom:0.5rem;">Email <span style="color:orange;"> Pessoal</span></label>
+          <input type="email" placeholder="Digite seu e-mail" style="padding:0.7rem 1rem;border-radius:10px;border:1px solid #ccc;width:100%;margin-bottom:1rem;">
+          <button style="background:orange;color:white;border:none;padding:0.7rem 1.2rem;border-radius:10px;font-weight:bold;cursor:pointer;">Quero receber novidades!</button>
+          <img src="componentes/images/dog.png" alt="Mascote" style="width:90px;margin-top:1rem;">
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 AuValia - Todos os direitos reservados.</p>
   </footer>
-  <script src="src/javascript/script.js"></script>
 </body>
 </html>
