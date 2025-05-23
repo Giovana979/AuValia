@@ -1,194 +1,169 @@
-body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fff7ed;
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mensagens | AuValia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="src/styles/mensagens.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container-header">
+      <div class="logo">
+        <img src="componentes/images/Logo.png" alt="AuValia" />
+        <span>AuValia</span>
+      </div>
+      <div class="search-box">
+        <a href="busca.html" class="search-button">
+          <i class="fas fa-search"></i>
+        </a>
+        <input type="text" id="search-input-index" placeholder="Buscar petshops, serviços...">
+      </div>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html">Início</a>
+        <a href="#">Perfil</a>
+        <a href="mensagens.html">Mensagens</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="main">
+    <div class="contacts" id="contacts">
+      <div class="contact" onclick="abrirConversa('Pet Shop Petz')">
+        <img src="componentes/images/petz.jpeg" alt="Pet Shop Petz" />
+        <span>Pet Shop Petz</span>
+      </div>
+      <div class="contact" onclick="abrirConversa('Transformacao Dog')">
+        <img src="componentes/images/transformacaodog.png" alt="Transformacao Dog" />
+        <span>Transformacao Dog</span>
+      </div>
+      <div class="contact" onclick="abrirConversa('Studio Dog')">
+        <img src="componentes/images/studiodog.jpg" alt="Studio Dog" />
+        <span>Studio Dog</span>
+      </div>
+    </div>
+    <div class="chat">
+      <div class="chat-header" id="chat-header">
+        <span>Selecione uma conversa</span>
+      </div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="chat-input">
+        <input type="text" id="message-input" placeholder="Digite uma mensagem..." disabled>
+        <button disabled>Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const mensagensMock = {
+      "Pet Mania": [
+        { texto: "Olá! Gostaria de saber se vocês têm banho para sábado.", enviado: true, data: "2025-05-15T14:23:00" },
+        { texto: "Olá! Temos sim, qual o porte do pet?", enviado: false, data: "2025-05-15T14:25:00" },
+        { texto: "Porte médio. Dá pra marcar?", enviado: true, data: "2025-05-16T09:05:00" }
+      ],
+      "Bicho Feliz": [
+        { texto: "Boa tarde, vocês fazem tosa higiênica?", enviado: true, data: "2025-05-16T13:15:00" },
+        { texto: "Boa tarde! Fazemos sim. Deseja agendar?", enviado: false, data: "2025-05-16T13:18:00" }
+      ],
+      "Joana Silva": [
+        { texto: "Oi! Já visitou o PetAmor do centro?", enviado: false, data: "2025-05-14T10:50:00" },
+        { texto: "Ainda não! É bom?", enviado: true, data: "2025-05-14T11:03:00" }
+      ]
+    };
+
+    const perfis = {
+      "Pet Shop Petz": "componentes/images/petz.jpeg",
+      "Transformacao Dog": "componentes/images/transformacaodog.png",
+      "Studio Dog": "componentes/images/studiodog.jpg"  
+    };
+
+    const chatHeader = document.getElementById("chat-header");
+    const chatMessages = document.getElementById("chat-messages");
+    const input = document.getElementById("message-input");
+    const button = document.querySelector(".chat-input button");
+
+    let contatoAtual = "";
+
+    function formatDate(dateStr) {
+      const today = new Date();
+      const msgDate = new Date(dateStr);
+      const diff = today.setHours(0,0,0,0) - msgDate.setHours(0,0,0,0);
+
+      if (diff === 0) return "Hoje";
+      if (diff === 86400000) return "Ontem";
+
+      return msgDate.toLocaleDateString("pt-BR", {
+        day: "2-digit", month: "2-digit", year: "numeric"
+      });
     }
 
-   .header {
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.container-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.logo img {
-  height: 60px;
-}
-
-.logo span {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: orange;
-}
-
-.search-box {
-  display: flex;
-  align-items: center;
-  background-color: #f0f0f0;
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
-  width: 1000px;
-}
-
-.search-box i {
-  margin-right: 0.5rem;
-  color: #999;
-}
-
-.search-box input {
-  border: none;
-  background: transparent;
-  outline: none;
-}
-
-/* Menu */
-.nav-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-    .main {
-      display: flex;
-      height: calc(100vh - 80px);
+    function formatTime(dateStr) {
+      const d = new Date(dateStr);
+      return d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
     }
 
-    .contacts {
-      width: 300px;
-      background-color: #fff;
-      border-right: 1px solid #e5e7eb;
-      overflow-y: auto;
+    function abrirConversa(contato) {
+      contatoAtual = contato;
+      input.disabled = false;
+      button.disabled = false;
+      input.value = "";
+
+      chatHeader.innerHTML = `
+        <img src="${perfis[contato] || 'componentes/images/usuario.png'}" alt="${contato}">
+        <span>${contato}</span>
+      `;
+
+      chatMessages.innerHTML = "";
+      const mensagens = mensagensMock[contato] || [];
+      let ultimaData = "";
+
+      mensagens.forEach(msg => {
+        const dataAtual = formatDate(msg.data);
+        if (dataAtual !== ultimaData) {
+          const separador = document.createElement("div");
+          separador.className = "date-separator";
+          separador.textContent = dataAtual;
+          chatMessages.appendChild(separador);
+          ultimaData = dataAtual;
+        }
+
+        const container = document.createElement("div");
+        container.className = "message" + (msg.enviado ? " sent" : "");
+        container.innerHTML = `
+          ${msg.texto}
+          <div class="message-time">${formatTime(msg.data)}</div>
+        `;
+        chatMessages.appendChild(container);
+      });
+
+      chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    .contact {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 1rem;
-      border-bottom: 1px solid #f3f4f6;
-      cursor: pointer;
-    }
+    button.addEventListener("click", () => {
+      const texto = input.value.trim();
+      if (!texto || !contatoAtual) return;
 
-    .contact:hover {
-      background-color: #fef3c7;
-    }
+      const now = new Date();
+      const novaMensagem = {
+        texto: texto,
+        enviado: true,
+        data: now.toISOString()
+      };
 
-    .contact img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
+      mensagensMock[contatoAtual] = mensagensMock[contatoAtual] || [];
+      mensagensMock[contatoAtual].push(novaMensagem);
 
-    .chat {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
+      abrirConversa(contatoAtual);
+    });
 
-    .chat-header {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 1rem;
-      background-color: #f3f4f6;
-      border-bottom: 1px solid #e5e7eb;
-      font-weight: bold;
-    }
-
-    .chat-header img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .chat-messages {
-      flex-grow: 1;
-      padding: 1rem;
-      overflow-y: auto;
-      background-color: #fefce8;
-    }
-
-    .chat-input {
-      display: flex;
-      padding: 1rem;
-      border-top: 1px solid #e5e7eb;
-      background-color: #fff;
-    }
-
-    .chat-input input {
-      flex-grow: 1;
-      padding: 0.7rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      outline: none;
-    }
-
-    .chat-input button {
-      padding: 0.7rem 1.2rem;
-      margin-left: 0.5rem;
-      background-color: #f59e0b;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .message {
-      max-width: 60%;
-      margin-bottom: 0.8rem;
-      padding: 0.7rem 1rem;
-      border-radius: 16px;
-      background-color: #ffffff;
-      color: #111827;
-      position: relative;
-      word-wrap: break-word;
-    }
-
-    .message.sent {
-      background-color: #fcd34d;
-      align-self: flex-end;
-    }
-
-    .message-time {
-      font-size: 0.75rem;
-      color: #6b7280;
-      margin-top: 0.3rem;
-      text-align: right;
-    }
-
-    .date-separator {
-      text-align: center;
-      margin: 1rem 0;
-      font-size: 0.85rem;
-      color: #9ca3af;
-      font-weight: bold;
-    }
+    // Enviar mensagem com Enter
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        button.click();
+      }
+    });
+  </script>
+</body>
+</html>
