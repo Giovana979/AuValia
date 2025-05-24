@@ -1,0 +1,240 @@
+body {
+    margin: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    background: #FFFCEB;
+    color: #183046;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 40px 28px 40px;
+    background: #FFFCEB;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #183046;
+}
+
+.paw {
+    font-size: 2.2rem;
+    color: #FFA53B;
+    margin-right: 8px;
+}
+
+.logo-text b {
+    color: #FFA53B;
+}
+
+.search-bar {
+    flex: 1;
+    margin: 0 40px;
+    padding: 12px 24px;
+    border-radius: 24px;
+    border: 1px solid #e6e6e6;
+    font-size: 1.1rem;
+    background: #fff;
+    outline: none;
+    max-width: 420px;
+}
+
+.header nav a {
+    color: #183046;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 32px;
+    font-size: 1.1rem;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 32px auto 0 auto;
+    gap: 32px;
+}
+
+.sidebar {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0001;
+    padding: 32px 28px;
+    min-width: 260px;
+    max-width: 280px;
+    height: fit-content;
+}
+
+.sidebar h2 {
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+    color: #183046;
+}
+
+.filter-group {
+    margin-bottom: 28px;
+}
+
+.filter-title {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #183046;
+}
+
+.filter-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    gap: 8px;
+}
+
+.filter-group input[type="radio"],
+.filter-group input[type="checkbox"] {
+    accent-color: #FFA53B;
+    margin-right: 8px;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.main-content h1 {
+    font-size: 2.3rem;
+    margin-bottom: 24px;
+    color: #183046;
+    font-weight: 700;
+}
+
+.filters-bar {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.filters-bar button {
+    background: #E6F4F1;
+    color: #183046;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 22px;
+    font-size: 1.08rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.filters-bar button:hover {
+    background: #D0EAE3;
+}
+
+.results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.result-card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px #0001;
+    padding: 22px 28px;
+    gap: 22px;
+    transition: box-shadow 0.2s;
+}
+
+.result-card:hover {
+    box-shadow: 0 4px 16px #0002;
+}
+
+.result-icon {
+    background: #E6F4F1;
+    color: #4EC2A7;
+    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.1rem;
+    margin-right: 10px;
+}
+
+.result-info {
+    flex: 1;
+}
+
+.result-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #183046;
+    margin-bottom: 4px;
+}
+
+.result-rating {
+    color: #FFA53B;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+
+.result-rating span {
+    color: #183046;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-left: 6px;
+}
+
+.result-address {
+    color: #183046;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.profile-btn {
+    background: #4EC2A7;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 28px;
+    font-size: 1.08rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    margin-left: 18px;
+}
+
+.profile-btn:hover {
+    background: #3BAF97;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-top: 1px solid #e6e6e6;
+    padding: 18px 40px;
+    font-size: 1rem;
+    margin-top: 48px;
+    color: #183046;
+}
+
+.footer-left span {
+    margin-right: 18px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.footer-right {
+    opacity: 0.7;
+    font-size: 0.98rem;
+}
