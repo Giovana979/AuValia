@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>senha</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="componentes/logo.png">
+            <p>Recupere o acesso à sua conta AuValia!
+                <br>
+                Enviaremos um link de redefinição de senha para o seu e-mail. 📧
+                <br>
+                Caso não receba, verifique sua caixa de spam ou tente novamente.
+            </p>
+        </div>
+        <div class="right">
+            <h2>Esqueceu a senha?<br><span>Vamos te ajudar!</span></h2>
+            <p class="subtitle">Informe seu e-mail para recuperar o acesso</p>
+            <form action="esqueci-senha.php" method="POST">
+                <input type="email" name="email" placeholder="Seu e-mail cadastrado" required>
+                <button type="submit">Enviar link de recuperação</button>
+                <a href="Login.html" class="criar-conta">Voltar ao login</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
