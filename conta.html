@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="src/styles/conta.css">
+    <style>
+        /* Alinha os radio buttons com os labels */
+        #tipo-conta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        #tipo-conta label {
+            margin-left: 0.5rem;
+        }
+
+        #tipo-conta input[type="radio"] {
+            margin: 0;
+        }
+    </style>
+</head>
+<body style="background-image: url('componentes/images/loginpage.png'); background-size: cover; background-position: center; height: 100vh; margin: 0;">
+    <div class="container">
+        <div class="left">
+            <img src="componentes/images/logo (1).png">
+            <p>Junte-se à comunidade AuValia!
+                <br>
+                Avalie, encontre e se conecte com os melhores PetShops da sua região.🐾
+                <br>
+                Crie sua conta agora e aproveite todos os recursos!
+            </p>
+        </div>
+        <div class="right">
+            <h2>Bem-vindo!<br><span>Crie sua conta</span></h2>
+            <p class="subtitle">Preencha os campos abaixo</p>
+            <form action="criar-conta.php" method="POST">
+                <!-- Filtro para selecionar tipo de conta -->
+                <div id="tipo-conta" style="margin-bottom: 1rem;">
+                    <div>
+                        <input type="radio" id="usuario" name="tipo" value="usuario" checked>
+                        <label for="usuario">Usuário</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="petshop" name="tipo" value="petshop">
+                        <label for="petshop">Petshop</label>
+                    </div>
+                </div>
+
+                <!-- Campo Nome completo ou CNPJ -->
+                <div id="campo-nome-cnpj">
+                    <input type="text" name="nome" id="nome-completo" placeholder="Nome completo" required>
+                </div>
+
+                <input type="text" name="usuario" placeholder="Nome de usuário" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="senha" placeholder="Senha" required>
+                <input type="password" name="confirma_senha" placeholder="Confirmar senha" required>
+                <button type="submit">Criar Conta</button>
+                <a href="Login.html" class="criar-conta">Já tem uma conta? Faça login</a>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Lógica para alternar entre Nome completo e CNPJ
+        const usuarioRadio = document.getElementById('usuario');
+        const petshopRadio = document.getElementById('petshop');
+        const campoNomeCnpj = document.getElementById('campo-nome-cnpj');
+
+        usuarioRadio.addEventListener('change', () => {
+            if (usuarioRadio.checked) {
+                campoNomeCnpj.innerHTML = '<input type="text" name="cpf" id="cpf" placeholder="CPF" required>';
+            }
+        });
+
+        petshopRadio.addEventListener('change', () => {
+            if (petshopRadio.checked) {
+                campoNomeCnpj.innerHTML = '<input type="text" name="cnpj" id="cnpj" placeholder="CNPJ" required>';
+            }
+        });
+    </script>
+</body>
+</html>
