@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuValia - Buscar Petshops</title>
+    <link rel="stylesheet" href="src/styles/busca.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="src/javascript/busca.js" defer></script>
+</head>
+<body>
+   <header class="header">
+    <div class="container-header">
+      <div class="logo">
+        <img src="componentes/images/Logo.png" alt="AuValia" />
+        <span>AuValia</span>
+      </div>
+    <div class="search-box">
+      <form action="busca.html" method="GET">
+        <button type="submit" class="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+        <input type="text" name="q" id="search-input-index" placeholder="Buscar petshops, serviços..." />
+      </form>
+    </div>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html">Início</a>
+        <a href="perfilusuario.html">Perfil</a>
+        <a href="mensagens.html">Mensagens</a>
+      </nav>
+    </div>
+  </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Filtros</h2>
+            <div class="filter-group">
+                <span class="filter-title">Ordenar por</span>
+                <label><input type="radio" name="order" value="melhores-avaliados" checked> Melhores avaliados</label>
+                <label><input type="radio" name="order" value="mais-proximos"> Mais próximos</label>
+            </div>
+            <div class="filter-group">
+                <span class="filter-title">Serviços</span>
+                <label><input type="checkbox" value="banho-e-tosa" checked> 🛁 Banho e Tosa</label>
+                <label><input type="checkbox" value="vacinação" checked> 💉 Vacinação</label>
+                <label><input type="checkbox" value="consultas-veterinárias" checked> 🩺 Consultas Veterinárias</label>
+                <label><input type="checkbox" value="treinamento"> 🦴 Treinamento</label>
+                <label><input type="checkbox" value="higiene"> ➕ Higiene</label>
+            </div>
+        </aside>
+        <main class="main-content">
+            <h1>Resultados da busca</h1>
+            <div class="filters-bar">
+                <button>⭐ Avaliação</button>
+                <button>📍 Localização</button>
+                <button>🐾 Tipo de serviço</button>
+            </div>
+            <div class="results-list">
+                <div class="result-card" data-servicos="banho-e-tosa,vacinação">
+                    <div class="result-icon">🐾</div>
+                    <div class="result-info">
+                        <div class="result-title">PetLar</div>
+                        <div class="result-rating">⭐⭐⭐⭐⭐ <span>(120 avaliações)</span></div>
+                        <div class="result-address">Rua Um, 123, 1,2 km</div>
+                    </div>
+                    <a href="perfilpetshop.html" class="profile-btn">Ver perfil</a>
+                </div>
+                <div class="result-card" data-servicos="consultas-veterinárias,treinamento">
+                    <div class="result-icon">🐾</div>
+                    <div class="result-info">
+                        <div class="result-title">ColoAmigo</div>
+                        <div class="result-rating">⭐⭐⭐⭐⭐ <span>(89 avaliações)</span></div>
+                        <div class="result-address">Av. Dois, 500, 1,8 km</div>
+                    </div>
+                    <a href="perfilpetshop.html" class="profile-btn">Ver perfil</a>
+                </div>
+                <div class="result-card" data-servicos="vacinação,consultas-veterinárias">
+                    <div class="result-icon">🐾</div>
+                    <div class="result-info">
+                        <div class="result-title">MundoPet</div>
+                        <div class="result-rating">⭐⭐⭐⭐⭐ <span>(17,5 avaliações)</span></div>
+                        <div class="result-address">Travessa Três, 2,3 km</div>
+                    </div>
+                    <a href="perfilpetshop.html" class="profile-btn">Ver perfil</a>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2025 AuValia - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
+<script>
+  // Captura o parâmetro 'q' da URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchTerm = urlParams.get('q');
+
+  // Atualiza a barra de pesquisa com o termo pesquisado
+  if (searchTerm) {
+    document.getElementById('search-input-index').value = searchTerm;
+  }
+
+  // Função para filtrar resultados com base no termo pesquisado e nos filtros
+  function filtrarResultados() {
+    const resultados = document.querySelectorAll('.result-card');
+    const termo = searchTerm ? searchTerm.toLowerCase() : '';
+    const filtrosSelecionados = Array.from(document.querySelectorAll('.filter-group input:checked')).map(input => input.value);
+
+    resultados.forEach((resultado) => {
+      const titulo = resultado.querySelector('.result-title').textContent.toLowerCase();
+      const servicos = resultado.dataset.servicos ? resultado.dataset.servicos.split(',') : [];
+
+      // Verifica se o resultado corresponde ao termo pesquisado ou aos filtros selecionados
+      const correspondeAoNome = termo === '' || titulo.includes(termo);
+      const correspondeAoFiltro = filtrosSelecionados.length === 0 || filtrosSelecionados.some(filtro => servicos.includes(filtro));
+
+      if (correspondeAoNome && correspondeAoFiltro) {
+        resultado.style.display = 'flex'; // Mostra o resultado
+      } else {
+        resultado.style.display = 'none'; // Esconde o resultado
+      }
+    });
+  }
+
+  // Adiciona evento para atualizar os resultados ao alterar os filtros
+  const filtros = document.querySelectorAll('.filter-group input');
+  filtros.forEach(filtro => {
+    filtro.addEventListener('change', filtrarResultados);
+  });
+
+  // Filtra os resultados inicialmente com base no termo pesquisado
+  filtrarResultados();
+</script>

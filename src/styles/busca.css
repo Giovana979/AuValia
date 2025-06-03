@@ -1,0 +1,287 @@
+/* Reset e fontes */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: linear-gradient(to bottom, #ffe7bb 0%, #fff9ed 100%);
+  color: #222;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo img {
+  width: 53px;
+  height: 53px;
+  object-fit: cover;
+  border-radius: 9999px;
+}
+.logo span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #a15c2f;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #f0f0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  width: 350px;
+  max-width: 90vw;
+}
+.search-box i {
+  margin-right: 0.5rem;
+  color: #999;
+}
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 1rem;
+  flex: 1;
+}
+.search-button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.search-button:focus {
+  outline: none; /* Remove o contorno ao focar */
+  box-shadow: none; /* Remove qualquer sombra */
+}
+
+/* Menu */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: #f59e0b;
+}
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Container */
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 32px auto 0 auto;
+  gap: 32px;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 32px 28px;
+  min-width: 260px;
+  max-width: 280px;
+  height: fit-content;
+}
+
+.sidebar h2 {
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+  color: #23272f;
+}
+
+.filter-group {
+  margin-bottom: 28px;
+}
+
+.filter-title {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #23272f;
+}
+
+.filter-group label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.filter-group input[type="radio"],
+.filter-group input[type="checkbox"] {
+  accent-color: #ff9800;
+  margin-right: 8px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.main-content h1 {
+  font-size: 2.3rem;
+  margin-bottom: 24px;
+  color: #23272f;
+  font-weight: 700;
+}
+
+.filters-bar {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.filters-bar button {
+  background: #fffbe6;
+  color: #23272f;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.filters-bar button:hover {
+  background: #ffe7bb;
+}
+
+/* Results List */
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.result-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 22px 28px;
+  gap: 22px;
+  transition: box-shadow 0.2s;
+}
+
+.result-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.result-icon {
+  background: #fffbe6;
+  color: #ff9800;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.1rem;
+  margin-right: 10px;
+}
+
+.result-info {
+  flex: 1;
+}
+
+.result-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #23272f;
+  margin-bottom: 4px;
+}
+
+.result-rating {
+  color: #ff9800;
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+}
+
+.result-rating span {
+  color: #23272f;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-left: 6px;
+}
+
+.result-address {
+  color: #23272f;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.profile-btn {
+  background: #ff9800;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+  margin-left: 18px;
+}
+
+.profile-btn:hover {
+  background: #a15c2f;
+}
+
+/* FOOTER */
+/* Garantir que o rodapé fique no final sem alterar o layout */
+body {
+  display: block; /* Voltar ao comportamento padrão */
+  min-height: 100vh;
+  position: relative; /* Permitir posicionamento do rodapé */
+}
+
+.container {
+  margin-bottom: 4rem; /* Espaço para o rodapé */
+}
+
+footer {
+  text-align: center;
+  background: rgb(255, 106, 0);
+  color: white;
+  padding: 1rem;
+  font-size: 0.95rem;
+  width: 100%;
+  position: absolute; /* Fixar no final da página */
+  bottom: 0;
+}
